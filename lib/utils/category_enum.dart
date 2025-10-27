@@ -1,13 +1,13 @@
 enum CategoryEnum {
   All,
-  Open,
-  Closed,
-  Archive,
+  Normal,
+  Onemli,
+  Kritik,
 }
 
 const categoryLabels = {
   CategoryEnum.All: 'Tümü',
-  CategoryEnum.Open: 'Açık',
-  CategoryEnum.Closed: 'Kapalı',
-  CategoryEnum.Archive: 'Arşiv',
+  CategoryEnum.Normal: 'Normal',
+  CategoryEnum.Onemli: 'Önemli',
+  CategoryEnum.Kritik: 'Kritik',
 };

@@ -20,7 +20,7 @@ class CategoryArea extends StatelessWidget {
           return Row(
             children: [
               TextButton(onPressed: (){}, child: Text(  item,style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.black45),)),
-              Gap(40)
+              Gap(30)
             ],
           );
         },),

@@ -1,17 +1,22 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:todoapp/providers/taskProviders/category_radio_provider.dart';
+import 'package:todoapp/providers/taskProviders/task_add_date_provider.dart';
+import 'package:todoapp/utils/category_enum.dart';
 
-class NewTaskForm extends StatefulWidget {
+class NewTaskForm extends ConsumerWidget {
   const NewTaskForm({super.key});
+  
+
+
 
   @override
-  State<NewTaskForm> createState() => _NewTaskFormState();
-}
+  Widget build(BuildContext context , WidgetRef ref) {
+  
 
-class _NewTaskFormState extends State<NewTaskForm> {
-  String? _groupValue;
-  @override
-  Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -68,29 +73,26 @@ class _NewTaskFormState extends State<NewTaskForm> {
                     ),
                     Gap(10),
                     RadioGroup(
-                      groupValue: _groupValue,
+                      groupValue: ref.watch(radioButtonProvider),
                       onChanged: (value) {
-                        setState(() {
-                          _groupValue = value;
-                        });
-                        print(_groupValue);
+                       ref.read(radioButtonProvider.notifier).state = value!;      
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text("Normal", style: TextStyle(color: Colors.blue)),
+                          Text(categoryLabels[CategoryEnum.Normal]!, style: TextStyle(color: Colors.blue)),
                           Radio(
-                            value: "Normal",
+                            value: categoryLabels[CategoryEnum.Normal]!,
                             fillColor: WidgetStatePropertyAll(Colors.blue),
                           ),
-                          Text("Önemli", style: TextStyle(color: Colors.amber)),
+                          Text(categoryLabels[CategoryEnum.Onemli]!, style: TextStyle(color: Colors.amber)),
                           Radio(
-                            value: "Önemli",
+                            value: categoryLabels[CategoryEnum.Onemli]!,
                             fillColor: WidgetStatePropertyAll(Colors.amber),
                           ),
-                          Text("Kritik", style: TextStyle(color: Colors.red)),
+                          Text(categoryLabels[CategoryEnum.Kritik]!, style: TextStyle(color: Colors.red)),
                           Radio(
-                            value: "Kritik",
+                            value: categoryLabels[CategoryEnum.Kritik]!,
                             fillColor: WidgetStatePropertyAll(Colors.red),
                           ),
                         ],
@@ -100,24 +102,67 @@ class _NewTaskFormState extends State<NewTaskForm> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Column(children: [Text("Tarih Seçiniz"), Gap(10)]),
-                        Column(children: [Text("Saat Seçiniz"), Gap(10)]),
+                        //Tarih Seçici Butonu
+                            ElevatedButton.icon(onPressed: (){
+                              DatePicker.showDatePicker(context,
+                              showTitleActions: true,
+                               onConfirm: (date) {
+                              },
+                              minTime: DateTime(2020, 1, 1),
+                           currentTime: DateTime.now(),
+                            locale: LocaleType.tr);
+                            }, label: Text("Tarih Seç",), icon: Icon(Icons.date_range)),
+                        //Saat Seçici Butonu
+                           ElevatedButton.icon(onPressed: (){
+                              DatePicker.showTimePicker(context,
+                              showTitleActions: true, onConfirm: (date) {}, currentTime: DateTime.now(),
+                              locale: LocaleType.tr
+                              );
+                              
+                           }, label: Text("Saat Seç",), icon: Icon(Icons.alarm)),
+                        
+                        
                       ],
                     ),
                     Gap(20),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Kaydet",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue.shade200,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                          
+                            onPressed: () {},
+                            child: Text(
+                              "Kaydet",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue.shade200,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
+                        Gap(20),
+                         Expanded(
+                           child: ElevatedButton(
+                                                 onPressed: () {
+                                                 },
+                                                 child: Text(
+                                                   "İptal",
+                                                   style: TextStyle(color: Colors.white),
+                                                 ),
+                                                 style: ElevatedButton.styleFrom(
+                                                   backgroundColor: Colors.red.shade200,
+                                                   shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                                                   ),
+                                                 ),
+                                               ),
+                         ),
+                      ],
                     ),
+                   
                   ],
                 ),
               ),
@@ -128,3 +173,4 @@ class _NewTaskFormState extends State<NewTaskForm> {
     );
   }
 }
+
