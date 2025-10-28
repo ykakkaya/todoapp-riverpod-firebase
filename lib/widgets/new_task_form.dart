@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:todoapp/providers/taskProviders/category_radio_provider.dart';
 import 'package:todoapp/providers/taskProviders/task_add_date_provider.dart';
 import 'package:todoapp/utils/category_enum.dart';
+import 'package:todoapp/utils/project_text.dart';
 
 class NewTaskForm extends ConsumerWidget {
   const NewTaskForm({super.key});
@@ -29,7 +30,7 @@ class NewTaskForm extends ConsumerWidget {
           children: [
             Gap(20),
             Text(
-              "Yeni Görev Ekle",
+              ProjectText.newTask,
               style: Theme.of(
                 context,
               ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
@@ -48,8 +49,8 @@ class NewTaskForm extends ConsumerWidget {
                   children: [
                     TextFormField(
                       decoration: InputDecoration(
-                        labelText: "Görev Adı",
-                        hintText: "İş Giriniz...",
+                        labelText: ProjectText.taskNameLabel,
+                        hintText: ProjectText.taskNameHint,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -59,8 +60,8 @@ class NewTaskForm extends ConsumerWidget {
                     TextFormField(
                       maxLines: 3,
                       decoration: InputDecoration(
-                        labelText: "Açıklama",
-                        hintText: "Açıklama Giriniz...",
+                        labelText:ProjectText.descriptionLabel,
+                        hintText: ProjectText.descriptionHint,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -68,7 +69,7 @@ class NewTaskForm extends ConsumerWidget {
                     ),
                     Gap(20),
                     Text(
-                      "Kategori Seçiniz",
+                      ProjectText.categorySelect,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     Gap(10),
@@ -111,7 +112,7 @@ class NewTaskForm extends ConsumerWidget {
                               minTime: DateTime(2020, 1, 1),
                            currentTime: DateTime.now(),
                             locale: LocaleType.tr);
-                            }, label: Text("Tarih Seç",), icon: Icon(Icons.date_range)),
+                            }, label: Text(ProjectText.dateSelect,), icon: Icon(Icons.date_range)),
                         //Saat Seçici Butonu
                            ElevatedButton.icon(onPressed: (){
                               DatePicker.showTimePicker(context,
@@ -119,7 +120,7 @@ class NewTaskForm extends ConsumerWidget {
                               locale: LocaleType.tr
                               );
                               
-                           }, label: Text("Saat Seç",), icon: Icon(Icons.alarm)),
+                           }, label: Text(ProjectText.timeSelect), icon: Icon(Icons.alarm)),
                         
                         
                       ],
@@ -131,15 +132,15 @@ class NewTaskForm extends ConsumerWidget {
                           child: ElevatedButton(
                           
                             onPressed: () {},
-                            child: Text(
-                              "Kaydet",
-                              style: TextStyle(color: Colors.white),
-                            ),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue.shade200,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
+                            ),
+                            child: Text(
+                              ProjectText.savedButton,
+                              style: TextStyle(color: Colors.white),
                             ),
                           ),
                         ),
@@ -148,15 +149,14 @@ class NewTaskForm extends ConsumerWidget {
                            child: ElevatedButton(
                                                  onPressed: () {
                                                  },
-                                                 child: Text(
-                                                   "İptal",
-                                                   style: TextStyle(color: Colors.white),
-                                                 ),
                                                  style: ElevatedButton.styleFrom(
-                                                   backgroundColor: Colors.red.shade200,
+                                                   backgroundColor: Colors.grey.shade200,
                                                    shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                                                    ),
+                                                 ),
+                                                 child: Text(
+                                                   ProjectText.cancelButton,
                                                  ),
                                                ),
                          ),

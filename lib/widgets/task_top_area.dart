@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
+import 'package:todoapp/utils/project_text.dart';
 import 'package:todoapp/widgets/new_task_form.dart';
 
 class TaskTopArea extends StatelessWidget {
@@ -15,7 +16,7 @@ class TaskTopArea extends StatelessWidget {
       children: [
         Column(
           children: [
-            Text("Bugünün Tarihi "),
+            Text(ProjectText.today),
             Gap(5),
             Text(
               DateFormat('d MMMM yyyy','tr').format(DateTime.now()),
@@ -29,7 +30,7 @@ class TaskTopArea extends StatelessWidget {
             context: context, builder: (context){
             return NewTaskForm();
           });
-        }, label: Text("Yeni Görev Ekle",style: TextStyle(color: Colors.white),), icon: Icon(Icons.add,color: Colors.white,),
+        }, label: Text(ProjectText.newTask,style: TextStyle(color: Colors.white),), icon: Icon(Icons.add,color: Colors.white,),
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blue.shade200,
           shape: RoundedRectangleBorder(

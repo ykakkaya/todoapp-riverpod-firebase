@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:todoapp/utils/project_text.dart';
 
 class CustomAppbar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
@@ -25,7 +26,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
           Gap(10),
           Column(
             children: [
-              Text("Merhaba ",style: TextStyle(fontSize: 12,color: Colors.grey.shade600),),
+              Text(ProjectText.greating,style: TextStyle(fontSize: 12,color: Colors.grey.shade600),),
               Text(widget.title,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),
             ],
           )
