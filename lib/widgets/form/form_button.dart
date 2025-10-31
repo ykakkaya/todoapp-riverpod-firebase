@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 
 class FormButton extends StatelessWidget {
-  String buttonText;
-  Color backgroundColor;
-  Color textColor;
+  final String buttonText;
+  final Color backgroundColor;
+  final Color textColor;
   FormButton({
     Key? key,
     required this.buttonText,

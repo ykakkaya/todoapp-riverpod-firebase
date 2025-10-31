@@ -11,6 +11,7 @@ class ProjectText {
   static final String categorySelect = 'Kategori Seçiniz';
   static final String dateSelect = 'Tarih Seçiniz';
   static final String timeSelect = 'Saat Seçiniz';
+  static final String noDateSelected = 'Tarih Seçilmedi';
 
   static final String savedButton = 'Kaydet';
   static final String cancelButton = 'İptal';

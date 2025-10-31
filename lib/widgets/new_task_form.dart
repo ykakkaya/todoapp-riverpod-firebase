@@ -4,21 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
 import 'package:todoapp/providers/taskProviders/category_radio_provider.dart';
 import 'package:todoapp/providers/taskProviders/task_add_date_provider.dart';
 import 'package:todoapp/utils/category_enum.dart';
 import 'package:todoapp/utils/project_text.dart';
 import 'package:todoapp/widgets/form/category_radio_group.dart';
 import 'package:todoapp/widgets/form/form_button.dart';
+import 'package:todoapp/widgets/form/form_datetime_select.dart';
 import 'package:todoapp/widgets/form/form_name_text.dart';
 import 'package:todoapp/widgets/form/task_input.dart';
 
 class NewTaskForm extends ConsumerWidget {
   const NewTaskForm({super.key});
-  
-
-
-
   @override
   Widget build(BuildContext context , WidgetRef ref) {
     return Container(
@@ -54,28 +52,7 @@ class NewTaskForm extends ConsumerWidget {
                     Gap(10),
                     CategoryRadioGroup(),
                     Gap(20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        //Tarih Seçici Butonu
-                            ElevatedButton.icon(onPressed: (){
-                              DatePicker.showDatePicker(context,
-                              showTitleActions: true,
-                               onConfirm: (date) {
-                              },
-                              minTime: DateTime(2020, 1, 1),
-                           currentTime: DateTime.now(),
-                            locale: LocaleType.tr);
-                            }, label: Text(ProjectText.dateSelect,), icon: Icon(Icons.date_range)),
-                        //Saat Seçici Butonu
-                           ElevatedButton.icon(onPressed: (){
-                              DatePicker.showTimePicker(context,
-                              showTitleActions: true, onConfirm: (date) {}, currentTime: DateTime.now(),
-                              locale: LocaleType.tr
-                              );
-                           }, label: Text(ProjectText.timeSelect), icon: Icon(Icons.alarm)),
-                      ],
-                    ),
+                    FormDateTimeSelect(),
                     Gap(20),
                     Row(
                       children: [
@@ -84,7 +61,7 @@ class NewTaskForm extends ConsumerWidget {
                         ),
                         Gap(20),
                          Expanded(
-                           child: FormButton(buttonText: ProjectText.cancelButton, backgroundColor: Colors.grey.shade200, textColor: Colors.black12,),
+                           child: FormButton(buttonText: ProjectText.cancelButton, backgroundColor: Colors.grey.shade200, textColor: Colors.black,),
                          ),
                       ],
                     ), 

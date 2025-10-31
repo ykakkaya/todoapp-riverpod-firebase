@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FormNameText extends StatelessWidget {
-  String title;
-  FormNameText({
+  final String title;
+   FormNameText({
     Key? key,
     required this.title,
   }) : super(key: key);

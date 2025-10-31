@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 
 class TaskInput extends StatelessWidget {
-  String labelText;
-  String hintText;
-  int maxLine;
+  final String labelText;
+  final String hintText;
+  final int maxLine;
   TaskInput({
     Key? key,
     required this.labelText,
@@ -15,6 +15,7 @@ class TaskInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLine,
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
