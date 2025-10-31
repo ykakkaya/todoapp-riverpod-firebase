@@ -8,6 +8,7 @@ import 'package:todoapp/providers/taskProviders/category_radio_provider.dart';
 import 'package:todoapp/providers/taskProviders/task_add_date_provider.dart';
 import 'package:todoapp/utils/category_enum.dart';
 import 'package:todoapp/utils/project_text.dart';
+import 'package:todoapp/widgets/form/category_radio_group.dart';
 import 'package:todoapp/widgets/form/form_button.dart';
 import 'package:todoapp/widgets/form/form_name_text.dart';
 import 'package:todoapp/widgets/form/task_input.dart';
@@ -20,14 +21,11 @@ class NewTaskForm extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context , WidgetRef ref) {
-  
-
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-
       height: MediaQuery.of(context).size.height * 0.75,
       child: SingleChildScrollView(
         child: Column(
@@ -39,7 +37,6 @@ class NewTaskForm extends ConsumerWidget {
               endIndent: MediaQuery.of(context).size.width * 0.05,
               thickness: 1,
             ),
-
             Form(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -55,32 +52,7 @@ class NewTaskForm extends ConsumerWidget {
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     Gap(10),
-                    RadioGroup(
-                      groupValue: ref.watch(radioButtonProvider),
-                      onChanged: (value) {
-                       ref.read(radioButtonProvider.notifier).state = value!;      
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text(categoryLabels[CategoryEnum.Normal]!, style: TextStyle(color: Colors.blue)),
-                          Radio(
-                            value: categoryLabels[CategoryEnum.Normal]!,
-                            fillColor: WidgetStatePropertyAll(Colors.blue),
-                          ),
-                          Text(categoryLabels[CategoryEnum.Onemli]!, style: TextStyle(color: Colors.amber)),
-                          Radio(
-                            value: categoryLabels[CategoryEnum.Onemli]!,
-                            fillColor: WidgetStatePropertyAll(Colors.amber),
-                          ),
-                          Text(categoryLabels[CategoryEnum.Kritik]!, style: TextStyle(color: Colors.red)),
-                          Radio(
-                            value: categoryLabels[CategoryEnum.Kritik]!,
-                            fillColor: WidgetStatePropertyAll(Colors.red),
-                          ),
-                        ],
-                      ),
-                    ),
+                    CategoryRadioGroup(),
                     Gap(20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -101,10 +73,7 @@ class NewTaskForm extends ConsumerWidget {
                               showTitleActions: true, onConfirm: (date) {}, currentTime: DateTime.now(),
                               locale: LocaleType.tr
                               );
-                              
                            }, label: Text(ProjectText.timeSelect), icon: Icon(Icons.alarm)),
-                        
-                        
                       ],
                     ),
                     Gap(20),
@@ -118,8 +87,7 @@ class NewTaskForm extends ConsumerWidget {
                            child: FormButton(buttonText: ProjectText.cancelButton, backgroundColor: Colors.grey.shade200, textColor: Colors.black12,),
                          ),
                       ],
-                    ),
-                   
+                    ), 
                   ],
                 ),
               ),
@@ -130,10 +98,4 @@ class NewTaskForm extends ConsumerWidget {
     );
   }
 }
-
-
-
-
-
-
 
