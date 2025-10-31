@@ -2,7 +2,9 @@ enum CategoryEnum {
   All,
   Normal,
   Onemli,
-  Kritik,
+  Kritik;
+
+  String get label => categoryLabels[this]!;
 }
 
 const categoryLabels = {

@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
@@ -7,6 +8,9 @@ import 'package:todoapp/providers/taskProviders/category_radio_provider.dart';
 import 'package:todoapp/providers/taskProviders/task_add_date_provider.dart';
 import 'package:todoapp/utils/category_enum.dart';
 import 'package:todoapp/utils/project_text.dart';
+import 'package:todoapp/widgets/form/form_button.dart';
+import 'package:todoapp/widgets/form/form_name_text.dart';
+import 'package:todoapp/widgets/form/task_input.dart';
 
 class NewTaskForm extends ConsumerWidget {
   const NewTaskForm({super.key});
@@ -29,12 +33,7 @@ class NewTaskForm extends ConsumerWidget {
         child: Column(
           children: [
             Gap(20),
-            Text(
-              ProjectText.newTask,
-              style: Theme.of(
-                context,
-              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
-            ),
+            FormNameText(title: ProjectText.newTask,),
             Divider(
               indent: MediaQuery.of(context).size.width * 0.05,
               endIndent: MediaQuery.of(context).size.width * 0.05,
@@ -47,26 +46,9 @@ class NewTaskForm extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: ProjectText.taskNameLabel,
-                        hintText: ProjectText.taskNameHint,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
+                    TaskInput(labelText: ProjectText.taskNameLabel, hintText:ProjectText.taskNameHint,),
                     Gap(20),
-                    TextFormField(
-                      maxLines: 3,
-                      decoration: InputDecoration(
-                        labelText:ProjectText.descriptionLabel,
-                        hintText: ProjectText.descriptionHint,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
+                    TaskInput(labelText: ProjectText.descriptionLabel, hintText: ProjectText.descriptionHint,maxLine: 3,),
                     Gap(20),
                     Text(
                       ProjectText.categorySelect,
@@ -129,36 +111,11 @@ class NewTaskForm extends ConsumerWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: ElevatedButton(
-                          
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue.shade200,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            child: Text(
-                              ProjectText.savedButton,
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
+                          child: FormButton(buttonText: ProjectText.savedButton, backgroundColor: Colors.blue.shade200, textColor: Colors.white,),
                         ),
                         Gap(20),
                          Expanded(
-                           child: ElevatedButton(
-                                                 onPressed: () {
-                                                 },
-                                                 style: ElevatedButton.styleFrom(
-                                                   backgroundColor: Colors.grey.shade200,
-                                                   shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                                                   ),
-                                                 ),
-                                                 child: Text(
-                                                   ProjectText.cancelButton,
-                                                 ),
-                                               ),
+                           child: FormButton(buttonText: ProjectText.cancelButton, backgroundColor: Colors.grey.shade200, textColor: Colors.black12,),
                          ),
                       ],
                     ),
@@ -173,4 +130,10 @@ class NewTaskForm extends ConsumerWidget {
     );
   }
 }
+
+
+
+
+
+
 
