@@ -50,7 +50,7 @@ class TaskCard extends StatelessWidget {
                       Text('A8 Bilişim San.Tic.Ltd.Şti.',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,decoration: TextDecoration.underline),
                       ),
                       Gap(10),
-                      Text("Açıklama Alanı:",style: TextStyle(fontWeight: FontWeight.bold,
+                      Text("Açıklama :",style: TextStyle(fontWeight: FontWeight.bold,
                       )),
                       Text('Toplantı Notları Alınacak ve Müşteri ile Görüşülecek.Toplantı Notları Alınacak ve Müşteri ile Görüşülecek.Toplantı Notları Alınacak ve Müşteri ile Görüşülecek.',overflow: TextOverflow.ellipsis,
                       maxLines: 2,),
@@ -70,7 +70,7 @@ class TaskCard extends StatelessWidget {
                           ),
                            Column(
                             children: [
-                              Text("Başlama Tarihi",style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text("Bitiş Tarihi",style: TextStyle(fontWeight: FontWeight.bold),),
                               Text('20.06.2025 15:00'),
                             ],
                           )

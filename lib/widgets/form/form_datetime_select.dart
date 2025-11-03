@@ -39,13 +39,13 @@ class FormDateTimeSelect extends ConsumerWidget {
                ElevatedButton.icon(onPressed: (){
                   DatePicker.showDateTimePicker(context,
                   showTitleActions: true, onConfirm: (date) {
-                    ref.read(taskAddEndTimeProvider.notifier).setTime(date);
+                    ref.read(taskAddEndDateProvider.notifier).setTime(date);
                   }, currentTime: DateTime.now(),
                   locale: LocaleType.tr
                   );
                }, label: Text(ProjectText.endDateSelect,textAlign: TextAlign.center,), icon: Icon(Icons.alarm)),
                 Gap(10),
-                  Text(DateFormat('dd/MM/yyyy hh:mm a').format(ref.watch(taskAddEndTimeProvider)!),style: TextStyle(color: Colors.grey), )
+                  Text(DateFormat('dd/MM/yyyy hh:mm a').format(ref.watch(taskAddEndDateProvider)!),style: TextStyle(color: Colors.grey), )
              ],
            ),
       ],
