@@ -13,25 +13,25 @@ class CategoryRadioGroup extends ConsumerWidget {
     return RadioGroup(
       groupValue: ref.watch(radioButtonProvider),
       onChanged: (value) {
-       ref.read(radioButtonProvider.notifier).state = value!;      
+       ref.read(radioButtonProvider.notifier).setRadioValue(value!);      
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(CategoryEnum.Normal.label, style: TextStyle(color: Colors.blue)),
+          Text(CategoryEnum.Normal.label, style: TextStyle(color: Colors.green)),
           Radio(
             value: CategoryEnum.Normal.label,
-            fillColor: WidgetStatePropertyAll(Colors.blue),
+            fillColor: WidgetStatePropertyAll(Colors.green),
           ),
-          Text(CategoryEnum.Onemli.label, style: TextStyle(color: Colors.amber)),
+          Text(CategoryEnum.Onemli.label, style: TextStyle(color: Colors.orangeAccent)),
           Radio(
             value: CategoryEnum.Onemli.label,
-            fillColor: WidgetStatePropertyAll(Colors.amber),
+            fillColor: WidgetStatePropertyAll(Colors.orangeAccent),
           ),
-          Text(CategoryEnum.Kritik.label, style: TextStyle(color: Colors.red)),
+          Text(CategoryEnum.Kritik.label, style: TextStyle(color: Colors.redAccent)),
           Radio(
             value: CategoryEnum.Kritik.label,
-            fillColor: WidgetStatePropertyAll(Colors.red),
+            fillColor: WidgetStatePropertyAll(Colors.redAccent),
           ),
        
         ],

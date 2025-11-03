@@ -8,10 +8,13 @@ class ProjectText {
   static final String taskNameHint = 'İş Giriniz...';
   static final String descriptionLabel = 'Açıklama';
   static final String descriptionHint = 'Açıklama Giriniz...';
+  static final String infoDescriptionLabel = 'Bilgi Notu';
+  static final String infoDescriptionHint = 'Bilgi Notu Giriniz...';
   static final String categorySelect = 'Kategori Seçiniz';
-  static final String dateSelect = 'Tarih Seçiniz';
-  static final String timeSelect = 'Saat Seçiniz';
+  static final String startDateSelect = 'Başlama\n Tarihi Seçiniz';
+  static final String endDateSelect = 'Bitiş\n Tarihi Seçiniz';
   static final String noDateSelected = 'Tarih Seçilmedi';
+
 
   static final String savedButton = 'Kaydet';
   static final String cancelButton = 'İptal';

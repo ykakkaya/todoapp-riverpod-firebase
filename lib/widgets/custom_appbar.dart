@@ -43,7 +43,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
           child: CircleAvatar(
             backgroundColor: Colors.grey.shade100,
             child: IconButton(
-              icon: Icon(Icons.notifications_none),
+              icon: Icon(Icons.search_outlined),
               onPressed: () {},
             ),
           ),

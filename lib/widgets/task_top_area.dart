@@ -32,7 +32,7 @@ class TaskTopArea extends StatelessWidget {
           });
         }, label: Text(ProjectText.newTask,style: TextStyle(color: Colors.white),), icon: Icon(Icons.add,color: Colors.white,),
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.blue.shade200,
+          backgroundColor: Colors.blue.shade300,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10)
           )

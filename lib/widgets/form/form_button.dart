@@ -5,7 +5,7 @@ class FormButton extends StatelessWidget {
   final String buttonText;
   final Color backgroundColor;
   final Color textColor;
-  FormButton({
+  const FormButton({
     Key? key,
     required this.buttonText,
     required this.backgroundColor,

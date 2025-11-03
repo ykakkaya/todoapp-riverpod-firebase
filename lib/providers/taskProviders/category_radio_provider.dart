@@ -5,6 +5,10 @@ class RadioButtonNotifier extends Notifier<String> {
    build() {
     return 'Normal';
   }
+
+  void setRadioValue(String value) {
+    state = value;
+  }
 }
 
 final radioButtonProvider =

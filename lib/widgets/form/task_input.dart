@@ -5,7 +5,7 @@ class TaskInput extends StatelessWidget {
   final String labelText;
   final String hintText;
   final int maxLine;
-  TaskInput({
+  const TaskInput({
     Key? key,
     required this.labelText,
     required this.hintText,

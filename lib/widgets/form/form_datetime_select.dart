@@ -16,36 +16,36 @@ class FormDateTimeSelect extends ConsumerWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        //Tarih Seçici Butonu
+        //Başlama Tarih Seçici 
             Column(
               children: [
                 ElevatedButton.icon(onPressed: (){
-                  DatePicker.showDatePicker(context,
+                  DatePicker.showDateTimePicker(context,
                   showTitleActions: true,
                    onConfirm: (date) {
-                    ref.read(taskAddDateProvider.notifier).setDate(date);
+                    ref.read(taskAddStartDateProvider.notifier).setDate(date);
                   },
                   minTime: DateTime(2020, 1, 1),
                   currentTime: DateTime.now(),
                   locale: LocaleType.tr);
-                }, label: Text(ProjectText.dateSelect,), icon: Icon(Icons.date_range)),
+                }, label: Text(ProjectText.startDateSelect,textAlign: TextAlign.center,), icon: Icon(Icons.date_range)),
                 Gap(10),
-                Text(ref.watch(taskAddDateProvider) == null ? ProjectText.noDateSelected : DateFormat('dd/MM/yyyy').format(ref.watch(taskAddDateProvider)!),style: TextStyle(color: Colors.grey), )
+                Text(DateFormat('dd/MM/yyyy hh:mm a').format(ref.watch(taskAddStartDateProvider)!),style: TextStyle(color: Colors.grey), ),
               ],
             ),
-        //Saat Seçici Butonu
+        //Bitiş Tarih Seçici 
            Column(
              children: [
                ElevatedButton.icon(onPressed: (){
-                  DatePicker.showTimePicker(context,
+                  DatePicker.showDateTimePicker(context,
                   showTitleActions: true, onConfirm: (date) {
-                    ref.read(taskAddTimeProvider.notifier).setTime(date);
+                    ref.read(taskAddEndTimeProvider.notifier).setTime(date);
                   }, currentTime: DateTime.now(),
                   locale: LocaleType.tr
                   );
-               }, label: Text(ProjectText.timeSelect), icon: Icon(Icons.alarm)),
+               }, label: Text(ProjectText.endDateSelect,textAlign: TextAlign.center,), icon: Icon(Icons.alarm)),
                 Gap(10),
-                  Text(ref.watch(taskAddTimeProvider) == null ? ProjectText.noDateSelected : DateFormat('hh:mm').format(ref.watch(taskAddTimeProvider)!),style: TextStyle(color: Colors.grey), )
+                  Text(DateFormat('dd/MM/yyyy hh:mm a').format(ref.watch(taskAddEndTimeProvider)!),style: TextStyle(color: Colors.grey), )
              ],
            ),
       ],

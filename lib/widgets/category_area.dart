@@ -19,7 +19,7 @@ class CategoryArea extends StatelessWidget {
         final item = categoryLabels[category] ?? category.name;
           return Row(
             children: [
-              TextButton(onPressed: (){}, child: Text(  item,style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.black45),)),
+              TextButton(onPressed: (){}, child: Text(  item,style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.blueAccent),)),
               Gap(30)
             ],
           );

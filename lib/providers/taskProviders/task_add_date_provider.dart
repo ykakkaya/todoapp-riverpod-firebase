@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class TaskAddDateNotifier extends Notifier<DateTime> {
+class TaskAddStartDateNotifier extends Notifier<DateTime> {
   @override
    build() {
     return DateTime.now();
@@ -11,11 +11,11 @@ class TaskAddDateNotifier extends Notifier<DateTime> {
   }
 }
 
-final taskAddDateProvider =
-    NotifierProvider<TaskAddDateNotifier, DateTime>(TaskAddDateNotifier.new);
+final taskAddStartDateProvider =
+    NotifierProvider<TaskAddStartDateNotifier, DateTime>(TaskAddStartDateNotifier.new);
 
 
-class TaskAddTimeNotifier extends Notifier<DateTime> {
+class TaskAddEndTimeNotifier extends Notifier<DateTime> {
   @override
    build() {
     return DateTime.now();
@@ -25,5 +25,5 @@ class TaskAddTimeNotifier extends Notifier<DateTime> {
   }
 }
 
-final taskAddTimeProvider =
-    NotifierProvider<TaskAddTimeNotifier, DateTime>(TaskAddTimeNotifier.new);
+final taskAddEndTimeProvider =
+    NotifierProvider<TaskAddEndTimeNotifier, DateTime>(TaskAddEndTimeNotifier.new);
