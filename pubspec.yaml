@@ -41,6 +41,7 @@ dependencies:
     sdk: flutter
   flutter_datetime_picker_plus: ^2.2.0
   fab_circular_menu_plus: ^0.0.4
+  animated_custom_dropdown: ^3.1.1
  
 
 dev_dependencies:

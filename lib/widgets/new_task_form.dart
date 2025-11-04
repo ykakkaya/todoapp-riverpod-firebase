@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:todoapp/utils/project_text.dart';
 import 'package:todoapp/widgets/form/category_radio_group.dart';
+import 'package:todoapp/widgets/form/customer_list_search_dropdown.dart';
 import 'package:todoapp/widgets/form/form_button.dart';
 import 'package:todoapp/widgets/form/form_datetime_select.dart';
 import 'package:todoapp/widgets/form/form_name_text.dart';
@@ -35,6 +36,8 @@ class NewTaskForm extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    CustomerListSearchDropdown(),
+                    Gap(20),
                     TaskInput(labelText: ProjectText.taskNameLabel, hintText:ProjectText.taskNameHint,),
                     Gap(20),
                     TaskInput(labelText: ProjectText.descriptionLabel, hintText: ProjectText.descriptionHint,maxLine: 3,),
