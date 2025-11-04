@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:todoapp/widgets/TaskArea/personel_list.dart';
 import 'package:todoapp/widgets/TaskArea/task_card.dart';
 import 'package:todoapp/widgets/category_area.dart';
 import 'package:todoapp/widgets/custom_appbar.dart';
+import 'package:todoapp/widgets/mainArea/animated_fab_button.dart';
 import 'package:todoapp/widgets/task_top_area.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: CustomAppbar(title: 'Yakup Akkaya',),
+      floatingActionButton: AnimatedFabButton(),
       body:Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -38,4 +39,5 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
 

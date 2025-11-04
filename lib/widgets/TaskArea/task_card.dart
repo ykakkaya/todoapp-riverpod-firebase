@@ -5,7 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:todoapp/widgets/TaskArea/personel_list.dart';
 
 class TaskCard extends StatelessWidget {
-  int index;
+  final int index;
   TaskCard({
     Key? key,
     required this.index,
@@ -29,7 +29,7 @@ class TaskCard extends StatelessWidget {
         
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.lightBlueAccent.withValues(alpha: 0.075),
+          color: Colors.blueAccent.withValues(alpha: 0.075),
         ),
         child: IntrinsicHeight(
           child: Row(
@@ -82,7 +82,8 @@ class TaskCard extends StatelessWidget {
                   ),
                 ),
               ),
-              IconButton(onPressed: (){}, icon: Icon(Icons.settings_outlined,color: Colors.black26.withValues(alpha: 0.6),)),
+              IconButton(
+                onPressed: (){}, icon: Icon(Icons.settings_outlined,color: Colors.black26.withValues(alpha: 0.6),)),
           
             ],
           ),
