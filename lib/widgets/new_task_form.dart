@@ -56,11 +56,15 @@ class NewTaskForm extends ConsumerWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: FormButton(buttonText: ProjectText.savedButton, backgroundColor: Colors.blue.shade200, textColor: Colors.white,),
+                          child: FormButton(buttonText: ProjectText.savedButton, backgroundColor: Colors.blue.shade200, textColor: Colors.white,onPressed: () {
+                            
+                          },),
                         ),
                         Gap(20),
                          Expanded(
-                           child: FormButton(buttonText: ProjectText.cancelButton, backgroundColor: Colors.grey.shade200, textColor: Colors.black,),
+                           child: FormButton(buttonText: ProjectText.cancelButton, backgroundColor: Colors.grey.shade200, textColor: Colors.black,onPressed: () {
+                              Navigator.pop(context);
+                           },),
                          ),
                       ],
                     ), 

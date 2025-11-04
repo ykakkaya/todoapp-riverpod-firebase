@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:todoapp/widgets/TaskArea/task_card.dart';
+import 'package:todoapp/widgets/TaskCardArea/task_card.dart';
 import 'package:todoapp/widgets/category_area.dart';
-import 'package:todoapp/widgets/custom_appbar.dart';
+import 'package:todoapp/widgets/mainArea/custom_appbar.dart';
 import 'package:todoapp/widgets/mainArea/animated_fab_button.dart';
 import 'package:todoapp/widgets/task_top_area.dart';
 

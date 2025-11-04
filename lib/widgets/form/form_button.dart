@@ -5,18 +5,23 @@ class FormButton extends StatelessWidget {
   final String buttonText;
   final Color backgroundColor;
   final Color textColor;
-  const FormButton({
+  VoidCallback? onPressed;
+   FormButton({
     Key? key,
     required this.buttonText,
     required this.backgroundColor,
     required this.textColor,
+    this.onPressed,
   }) : super(key: key);
+
+ 
+
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
     
-      onPressed: () {},
+      onPressed:onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(

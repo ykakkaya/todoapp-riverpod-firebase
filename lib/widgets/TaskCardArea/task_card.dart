@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import 'package:todoapp/widgets/TaskArea/personel_list.dart';
+import 'package:todoapp/widgets/TaskCardArea/personel_list.dart';
 
 class TaskCard extends StatelessWidget {
   final int index;
